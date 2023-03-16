@@ -2,6 +2,7 @@
 
 import 'package:brick/pages/HomePage.dart';
 import 'package:brick/pages/contactUs.dart';
+import 'package:brick/pages/menuPage.dart';
 import 'package:brick/utils/ThemeColor.dart';
 import 'package:brick/widgets/customText.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +35,7 @@ class _settingsPageState extends State<settingsPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const HomePage(),
+                          builder: (context) => const menuPage(),
                         ), 
                       );
                     },
@@ -199,38 +200,8 @@ class _settingsPageState extends State<settingsPage> {
                 height: he * 0.025,
               ),
               
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ContactUs(),
-                    ),
-                  );
-                },
-                child: Row(
-                  children: [
-                    Icon(Icons.contact_support_outlined, size: 25, color: MyThemeColor.textColor),
-                  SizedBox(
-                    width: he * 0.015,
-                  ),
-                    const Text(
-                      "Contact Us",
-                      style:
-                          TextStyle(fontSize: 18, color: MyThemeColor.textColor),
-                    ),
-                    Expanded(child: Container()),
-                    const Icon(
-                      Icons.arrow_forward_ios,
-                      color: MyThemeColor.textColor,
-                      size: 20,
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: he * 0.025,
-              ),
+            
+              
               Row(
                 children: [
                   Icon(Icons.notifications_active_outlined, size: 25, color: MyThemeColor.textColor),

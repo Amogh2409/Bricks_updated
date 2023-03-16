@@ -1,3 +1,4 @@
+import 'package:brick/pages/menuPage.dart';
 import 'package:brick/pages/settingsPage.dart';
 import 'package:brick/widgets/customText.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,7 @@ class _ContactUsState extends State<ContactUs> {
                        Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const settingsPage(),
+                          builder: (context) => const menuPage(),
                         ), 
                       ); 
                       },

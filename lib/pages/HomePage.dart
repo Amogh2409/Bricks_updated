@@ -1,4 +1,5 @@
-import 'package:brick/pages/menu.dart';
+
+import 'package:brick/pages/menuPage.dart';
 import 'package:brick/pages/scanPage.dart';
 import 'package:brick/pages/settingsPage.dart';
 import 'package:brick/pages/sharePage.dart';
@@ -30,7 +31,7 @@ class _HomePageState extends State<HomePage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const settingsPage()));
+                                  builder: (context) => const menuPage()));
                       },
                       child: Icon(Icons.menu, size: 40)),
                     Expanded(child: Container()),
