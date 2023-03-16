@@ -1,11 +1,15 @@
 // ignore_for_file: file_names, camel_case_types
 
+import 'dart:io';
+
+import 'package:brick/pages/BackupPage.dart';
 import 'package:brick/pages/HomePage.dart';
 import 'package:brick/pages/contactUs.dart';
 import 'package:brick/pages/settingsPage.dart';
 import 'package:brick/utils/ThemeColor.dart';
 import 'package:brick/widgets/customText.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class menuPage extends StatefulWidget {
   const menuPage({super.key});
@@ -69,10 +73,20 @@ class _menuPageState extends State<menuPage> {
               SizedBox(
                 height: he * 0.035,
               ),
-              Text(
-                'Backups',
-                
-                style: TextStyle(fontSize: 30, ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const BackupsPage(),
+                    ),
+                  );
+                },
+                child: Text(
+                  'Backups',
+                  
+                  style: TextStyle(fontSize: 30, ),
+                ),
               ),
               SizedBox(
                 height: he * 0.035,
@@ -103,10 +117,13 @@ class _menuPageState extends State<menuPage> {
               SizedBox(
                 height: he * 0.035,
               ),
-              Text(
-                'Quit',
-                
-                style: TextStyle(fontSize: 30, ),
+              GestureDetector(
+                onTap: () => SystemNavigator.pop(),
+                child: Text(
+                  'Quit',
+                  
+                  style: TextStyle(fontSize: 30, ),
+                ),
               ),
               SizedBox(
                 height: he * 0.035,
@@ -116,5 +133,20 @@ class _menuPageState extends State<menuPage> {
         ),
       ),
     );
+  }
+}
+
+
+class Quit extends StatefulWidget {
+  const Quit({super.key});
+
+  @override
+  State<Quit> createState() => _QuitState();
+}
+
+class _QuitState extends State<Quit> {
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }

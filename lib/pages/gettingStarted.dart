@@ -13,6 +13,12 @@ class GettingStarted extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
             body: Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/3.png'),
+                  fit: BoxFit.cover,
+                ),
+              ),
       padding: const EdgeInsets.all(30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,17 +35,9 @@ class GettingStarted extends StatelessWidget {
             width: 117,
           ),
           const SizedBox(
-            height: 5,
+            height: 105,
           ),
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              Image.asset('assets/p.png', height: 318, width: 370),
-
-              Image.asset('assets/people.png', height: 230, width: 370),
-              
-            ],
-          ),
+          
           const SizedBox(
             height: 20,
           ),
@@ -48,16 +46,16 @@ class GettingStarted extends StatelessWidget {
             style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
           ),
           const SizedBox(
-            height: 10,
+            height: 30,
           ),
           const Text(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec neque nunc.',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec neque nunc.\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec neque nunc.',
             style: TextStyle(
               fontSize: 20,
             ),
           ),
           const SizedBox(
-            height: 17,
+            height: 140,
           ),
           SizedBox(
               height: 47,
@@ -69,7 +67,7 @@ class GettingStarted extends StatelessWidget {
                 },
                 style: ElevatedButton.styleFrom(
                   elevation: 7,
-                  backgroundColor: Colors.blue,
+                  backgroundColor: Colors.green,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                 ),

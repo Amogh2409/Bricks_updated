@@ -1,8 +1,10 @@
 
+import 'package:brick/pages/ScannedBricks.dart';
 import 'package:brick/pages/menuPage.dart';
 import 'package:brick/pages/scanPage.dart';
 import 'package:brick/pages/settingsPage.dart';
-import 'package:brick/pages/sharePage.dart';
+
+
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -152,7 +154,7 @@ class _HomePageState extends State<HomePage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const sharePage(),
+                                  builder: (context) => const ScannedBricks(),
                                 ),
                               );
                             },
