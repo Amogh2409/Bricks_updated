@@ -1,10 +1,8 @@
-
 import 'package:brick/pages/ScannedBricks.dart';
 import 'package:brick/pages/menuPage.dart';
 import 'package:brick/pages/profilePage.dart';
 import 'package:brick/pages/scanPage.dart';
 import 'package:brick/pages/settingsPage.dart';
-
 
 import 'package:flutter/material.dart';
 
@@ -16,38 +14,46 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  late Size size;
+  late double height;
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size.height;
+    size = MediaQuery.of(context).size;
+    height = size.height -
+        56 -
+        MediaQuery.of(context).padding.top -
+        MediaQuery.of(context).padding.bottom;
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
+      body: SizedBox(
+        height: size.height,
+        width: size.width,
+        child: SafeArea(
           child: Container(
             color: Colors.grey.shade200,
             width: double.infinity,
-            
             child: Column(
               children: [
-                Padding(
-                  padding: EdgeInsets.only(
+                Container(
+                  height: 56,
+                  padding: const EdgeInsets.only(
                       top: 4.0, left: 8.0, right: 8.0, bottom: 4.0),
                   child: Row(
                     children: [
                       GestureDetector(
-                        onTap: (){
+                          onTap: () {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => const menuPage()));
-                        },
-                        child: Icon(Icons.menu, size: 40)),
+                          },
+                          child: Icon(Icons.menu, size: 40)),
                       Expanded(child: Container()),
                       GestureDetector(
-                        onTap: (){
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const ProfilePage()));
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const ProfilePage()));
                         },
                         child: Container(
                             padding: EdgeInsets.only(top: 4.0),
@@ -64,132 +70,52 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Column(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const scanPage(),
-                              ),
-                            );
-                          },
-                          child: Container(
-                            padding: EdgeInsets.only(left: 5, right: 5),
-                            color: Colors.orange.shade300,
-                              height: size * 0.44,
-                              width: size * 0.228,
-                              child: Column(
-                                children: [
-                                  Expanded(child: Container()),
-                                   Icon(
-                                    Icons.fullscreen,
-                                    color: Colors.grey.shade800,
-                                    size: 70,
-                                  ),
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  const Text("Scan my Bricks",
-                                  textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
-                                  Expanded(child: Container()),
-                                ],
-                              )),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            
-                          },
-                          child: Container(
-                              color: Colors.lightBlue,
-                              height: size * 0.44,
-                              width: size * 0.228,
-                              child: Column(
-                                
-                                children: [
-                                  Expanded(child: Container()),
-                                   Icon(
-                                    Icons.shopping_bag_outlined,
-                                    color: Colors.grey.shade800,
-                                    size: 70,
-                                  ),
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  const Text("Purchase New Bricks",
-                                  textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
-                                  Expanded(child: Container()),
-                                ],
-                              )),
-                        ),
-                      ],
+                    option(
+                      icon: Icons.fullscreen,
+                      title: "Scan my Bricks",
+                      color: Colors.orange.shade300,
+                      callback: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const scanPage(),
+                          ),
+                        );
+                      },
                     ),
-                    SizedBox(
-                      height: size,
-                      width: 2,
+                    option(
+                      icon: Icons.save_outlined,
+                      title: "My Mocs",
+                      color: Colors.red.shade300,
+                      callback: () {},
                     ),
-                    Column(
-                      children: [
-                        Container(
-                          color: Colors.red.shade300,
-                          height: size * 0.44,
-                          width: size * 0.23,
-                          child: GestureDetector(
-                              onTap: () {},
-                              child: Column(
-                                children: [
-                                  Expanded(child: Container()),
-                                  Icon(
-                                    Icons.save_outlined,
-                                    color: Colors.grey.shade800,
-                                    size: 70,
-                                  ),
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  const Text("My Mocs",
-                                      style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
-                                  Expanded(child: Container()),
-                                ],
-                              )),
-                        ),
-                        Container(
-                          color: Color.fromARGB(255, 70, 217, 77),
-                          height: size * 0.44,
-                          width: size * 0.23,
-                          child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const ScannedBricks(),
-                                  ),
-                                );
-                              },
-                              child: Column(
-                                children: [
-                                  Expanded(child: Container()),
-                                   Icon(
-                                    Icons.storage_rounded,
-                                    color: Colors.grey.shade800,
-                                    size: 70,
-                                  ),
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  const Text("My Scanned Brick",
-                                  textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
-                                  Expanded(child: Container()),
-                                ],
-                              )),
-                        ),
-                      ],
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    option(
+                      icon: Icons.shopping_bag_outlined,
+                      title: "Purchase New Bricks",
+                      color: Colors.lightBlue,
+                      callback: () {},
+                    ),
+                    option(
+                      icon: Icons.storage_rounded,
+                      title: "My Scanned Brick",
+                      color: const Color.fromARGB(255, 70, 217, 77),
+                      callback: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ScannedBricks(),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
@@ -200,4 +126,36 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+  Widget option(
+          {required IconData icon,
+          required String title,
+          required Color color,
+          required VoidCallback callback}) =>
+      GestureDetector(
+        onTap: () => callback(),
+        child: Container(
+          color: color,
+          height: height * 0.5,
+          width: size.width * 0.5,
+          padding: const EdgeInsets.symmetric(horizontal: 12),
+          alignment: Alignment.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Icon(
+                icon,
+                color: Colors.grey.shade800,
+                size: 70,
+              ),
+              const SizedBox(height: 12),
+              Text(title,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                      fontSize: 26, fontWeight: FontWeight.bold)),
+            ],
+          ),
+        ),
+      );
 }
