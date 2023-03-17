@@ -18,7 +18,7 @@ class login extends StatelessWidget {
           children: [
             Container(),
             Container(
-              padding: const EdgeInsets.only(left: 35, top: 130),
+              padding: const EdgeInsets.only(left: 35, top: 165),
               child: Text(
                 'Welcome\nBack',
                 style: TextStyle(color: Colors.grey.shade900, fontSize: 40),
@@ -27,7 +27,7 @@ class login extends StatelessWidget {
             SingleChildScrollView(
               child: Container(
                 padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.5),
+                    top: MediaQuery.of(context).size.height * 0.4),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

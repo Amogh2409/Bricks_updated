@@ -23,7 +23,7 @@ class Registration extends StatelessWidget {
         body: Stack(
           children: [
             Container(
-              padding: const EdgeInsets.only(left: 35, top: 30),
+              padding: const EdgeInsets.only(left: 35, top: 65),
               child:  Text(
                 'Create\nAccount',
                 style: TextStyle(color: Colors.grey.shade900, fontSize: 33),
@@ -32,7 +32,7 @@ class Registration extends StatelessWidget {
             SingleChildScrollView(
               child: Container(
                 padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.28),
+                    top: MediaQuery.of(context).size.height * 0.24),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

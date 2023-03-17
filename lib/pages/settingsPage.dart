@@ -2,9 +2,11 @@
 
 import 'package:brick/pages/HomePage.dart';
 import 'package:brick/pages/contactUs.dart';
+import 'package:brick/pages/login.dart';
 import 'package:brick/pages/menuPage.dart';
 import 'package:brick/utils/ThemeColor.dart';
 import 'package:brick/widgets/customText.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class settingsPage extends StatefulWidget {
@@ -14,10 +16,13 @@ class settingsPage extends StatefulWidget {
   State<settingsPage> createState() => _settingsPageState();
 }
 
-
 class _settingsPageState extends State<settingsPage> {
+  bool isSwitched = true;
+  bool darkSwitched = false;
+  bool isSound = true;
   @override
   Widget build(BuildContext context) {
+    
     var he = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
@@ -29,23 +34,26 @@ class _settingsPageState extends State<settingsPage> {
             children: [
               Padding(
                 padding: EdgeInsets.only(top: he * 0.04, bottom: he * 0.0),
-                child: Row(children:[
+                child: Row(children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const menuPage(),
-                        ), 
-                      );
-                    },
-                    
-                    child: const Icon(Icons.arrow_back_ios, size: 25,))
-                  ,
-                  SizedBox(width: he * 0.01,),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const menuPage(),
+                          ),
+                        );
+                      },
+                      child: const Icon(
+                        Icons.arrow_back_ios,
+                        size: 25,
+                      )),
+                  SizedBox(
+                    width: he * 0.01,
+                  ),
                   customText("Settings", 28),
                   Expanded(child: Container()),
-                  ] ),
+                ]),
               ),
               SizedBox(
                 height: he * 0.035,
@@ -100,7 +108,8 @@ class _settingsPageState extends State<settingsPage> {
                               width: he * 0.005,
                             ),
                             const Icon(Icons.add,
-                                size: 25, color: Color.fromARGB(255, 141, 127, 65))
+                                size: 25,
+                                color: Color.fromARGB(255, 141, 127, 65))
                           ],
                         ),
                         SizedBox(height: he * 0.0005),
@@ -125,7 +134,8 @@ class _settingsPageState extends State<settingsPage> {
               ),
               Row(
                 children: [
-                  Icon(Icons.privacy_tip_outlined, size: 25, color: MyThemeColor.textColor),
+                  Icon(Icons.privacy_tip_outlined,
+                      size: 25, color: MyThemeColor.textColor),
                   SizedBox(
                     width: he * 0.015,
                   ),
@@ -145,28 +155,7 @@ class _settingsPageState extends State<settingsPage> {
               SizedBox(
                 height: he * 0.025,
               ),
-              Row(
-                children: [
-                  Icon(Icons.volume_down_outlined, size: 25, color: MyThemeColor.textColor),
-                  SizedBox(
-                    width: he * 0.015,
-                  ),
-                  const Text(
-                    "Sounds",
-                    style:
-                        TextStyle(fontSize: 18, color: MyThemeColor.textColor),
-                  ),
-                  Expanded(child: Container()),
-                  const Icon(
-                    Icons.arrow_forward_ios,
-                    color: MyThemeColor.textColor,
-                    size: 20,
-                  )
-                ],
-              ),
-              SizedBox(
-                height: he * 0.025,
-              ),
+              
               GestureDetector(
                 onTap: () {
                   // Navigator.push(
@@ -178,14 +167,15 @@ class _settingsPageState extends State<settingsPage> {
                 },
                 child: Row(
                   children: [
-                    Icon(Icons.info_outline, size: 25, color: MyThemeColor.textColor),
-                  SizedBox(
-                    width: he * 0.015,
-                  ),
+                    Icon(Icons.info_outline,
+                        size: 25, color: MyThemeColor.textColor),
+                    SizedBox(
+                      width: he * 0.015,
+                    ),
                     const Text(
                       "About App",
-                      style:
-                          TextStyle(fontSize: 18, color: MyThemeColor.textColor),
+                      style: TextStyle(
+                          fontSize: 18, color: MyThemeColor.textColor),
                     ),
                     Expanded(child: Container()),
                     const Icon(
@@ -199,12 +189,41 @@ class _settingsPageState extends State<settingsPage> {
               SizedBox(
                 height: he * 0.025,
               ),
-              
-            
-              
               Row(
                 children: [
-                  Icon(Icons.notifications_active_outlined, size: 25, color: MyThemeColor.textColor),
+                  if (isSound == true)
+                    Icon(Icons.volume_up_outlined,
+                        size: 25, color: MyThemeColor.textColor)
+                  else
+                    Icon(Icons.volume_off_outlined,
+                        size: 25, color: MyThemeColor.textColor),
+                  SizedBox(
+                    width: he * 0.015,
+                  ),
+                  const Text(
+                    "Sounds",
+                    style:
+                        TextStyle(fontSize: 18, color: MyThemeColor.textColor),
+                  ),
+                  Expanded(child: Container()),
+                  CupertinoSwitch(value: isSound, onChanged: (bool value) {
+                    setState(() {
+                      isSound = value;
+                    });
+                  })
+                ],
+              ),
+              SizedBox(
+                height: he * 0.025,
+              ),
+              Row(
+                children: [
+                  if (isSwitched == true)
+                    Icon(Icons.notifications_active_outlined,
+                        size: 25, color: MyThemeColor.textColor)
+                  else
+                    Icon(Icons.notifications_off_outlined,
+                        size: 25, color: MyThemeColor.textColor),
                   SizedBox(
                     width: he * 0.015,
                   ),
@@ -214,11 +233,41 @@ class _settingsPageState extends State<settingsPage> {
                         TextStyle(fontSize: 18, color: MyThemeColor.textColor),
                   ),
                   Expanded(child: Container()),
-                  const Icon(
-                    Icons.arrow_forward_ios,
-                    color: MyThemeColor.textColor,
-                    size: 20,
-                  )
+                  CupertinoSwitch(value: isSwitched, onChanged: (bool value) {
+                    setState(() {
+                      isSwitched = value;
+                    });
+                  
+                  })
+                  
+                ],
+              ),
+              SizedBox(
+                height: he * 0.025,
+              ),
+              Row(
+                children: [
+                  if (darkSwitched == true)
+                    Icon(Icons.dark_mode_outlined,
+                        size: 25, color: MyThemeColor.textColor)
+                  else
+                    Icon(Icons.light_mode_outlined,
+                        size: 25, color: MyThemeColor.textColor),
+                  SizedBox(
+                    width: he * 0.015,
+                  ),
+                  const Text(
+                    "Dark Mode",
+                    style:
+                        TextStyle(fontSize: 18, color: MyThemeColor.textColor),
+                  ),
+                  Expanded(child: Container()),
+                  CupertinoSwitch(value: darkSwitched, onChanged: (bool value) {
+                    setState(() {
+                      darkSwitched = value;
+                    });
+                  
+                  })
                 ],
               ),
               SizedBox(
@@ -231,25 +280,18 @@ class _settingsPageState extends State<settingsPage> {
               SizedBox(
                 height: he * 0.02,
               ),
-              // const Text(
-              //   "Help Center",
-              //   style: TextStyle(fontSize: 17, color: MyThemeColor.textColor),
-              // ),
-              // SizedBox(
-              //   height: he * 0.02,
-              // ),
               const Text(
                 "Privacy Policy",
                 style: TextStyle(fontSize: 17, color: MyThemeColor.textColor),
               ),
-              
               SizedBox(
                 height: he * 0.02,
               ),
               GestureDetector(
                 onTap: () {
                   // saveUser();
-
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => const login()));
                   // Navigator.pushReplacement(context,
                   //     MaterialPageRoute(builder: (context) => const Navbar()));
                 },
@@ -271,4 +313,8 @@ class _settingsPageState extends State<settingsPage> {
       ),
     );
   }
+}
+
+value() {
+  
 }
