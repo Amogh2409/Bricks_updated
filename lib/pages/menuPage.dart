@@ -1,10 +1,11 @@
 // ignore_for_file: file_names, camel_case_types
-
+ // ignore: prefer_const_constructors
 import 'dart:io';
 
 import 'package:brick/pages/BackupPage.dart';
 import 'package:brick/pages/HomePage.dart';
 import 'package:brick/pages/contactUs.dart';
+import 'package:brick/pages/helppage.dart';
 import 'package:brick/pages/settingsPage.dart';
 import 'package:brick/utils/ThemeColor.dart';
 import 'package:brick/widgets/customText.dart';
@@ -64,7 +65,7 @@ class _menuPageState extends State<menuPage> {
                     ),
                   );
                 },
-                child: Text(
+                child: const Text(
                   'Contact Us',
                   
                   style: TextStyle(fontSize: 30, ),
@@ -82,10 +83,11 @@ class _menuPageState extends State<menuPage> {
                     ),
                   );
                 },
+                // ignore: prefer_const_constructors
                 child: Text(
                   'Backups',
                   
-                  style: TextStyle(fontSize: 30, ),
+                  style: const TextStyle(fontSize: 30, ),
                 ),
               ),
               SizedBox(
@@ -100,7 +102,8 @@ class _menuPageState extends State<menuPage> {
                     ),
                   );
                 },
-                child: Text(
+               
+                child: const Text(
                   'Settings',
                   
                   style: TextStyle(fontSize: 30, ),
@@ -109,17 +112,27 @@ class _menuPageState extends State<menuPage> {
               SizedBox(
                 height: he * 0.035,
               ),
-              Text(
-                'Help',
-                
-                style: TextStyle(fontSize: 30, ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const HelpPage(),
+                    ),
+                  );
+                },
+                child: const Text(
+                  'Help',
+                  
+                  style: TextStyle(fontSize: 30, ),
+                ),
               ),
               SizedBox(
                 height: he * 0.035,
               ),
               GestureDetector(
                 onTap: () => SystemNavigator.pop(),
-                child: Text(
+                child: const Text(
                   'Quit',
                   
                   style: TextStyle(fontSize: 30, ),

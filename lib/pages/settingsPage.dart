@@ -6,6 +6,7 @@ import 'package:brick/pages/login.dart';
 import 'package:brick/pages/menuPage.dart';
 import 'package:brick/utils/ThemeColor.dart';
 import 'package:brick/widgets/customText.dart';
+import 'package:brick/widgets/upper_header.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -32,29 +33,7 @@ class _settingsPageState extends State<settingsPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: EdgeInsets.only(top: he * 0.04, bottom: he * 0.0),
-                child: Row(children: [
-                  GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const menuPage(),
-                          ),
-                        );
-                      },
-                      child: const Icon(
-                        Icons.arrow_back_ios,
-                        size: 25,
-                      )),
-                  SizedBox(
-                    width: he * 0.01,
-                  ),
-                  customText("Settings", 28),
-                  Expanded(child: Container()),
-                ]),
-              ),
+              upperHearder("Settings", context, false),
               SizedBox(
                 height: he * 0.035,
               ),

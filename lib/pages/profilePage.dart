@@ -60,7 +60,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 SizedBox(
                   height: 15,
                 ),
-                customText("Welcome, Alex", 30),
+                customText("Welcome, Amogh", 30),
                 SizedBox(
                   height: 20,
                 ),
@@ -76,7 +76,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: TextField(
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.only(top: 12, left: 10),
-                      hintText: "Alex",
+                      hintText: "Amogh",
                       hintStyle: TextStyle(color: MyThemeColor.textColor),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -108,7 +108,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: TextField(
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.only(top: 12, left: 10),
-                      hintText: "Costa",
+                      hintText: "Saxena",
                       hintStyle: TextStyle(color: MyThemeColor.textColor),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -140,7 +140,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: TextField(
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.only(top: 12, left: 10),
-                          hintText: "Alex",
+                          hintText: "Amogh",
                           hintStyle: TextStyle(color: MyThemeColor.textColor),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
@@ -224,7 +224,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: TextField(
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.only(top: 12, left: 10),
-                          hintText: "alexcosta23@gmail.com",
+                          hintText: "amoghsaxena24@gmail.com",
                           hintStyle: TextStyle(color: MyThemeColor.textColor),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),

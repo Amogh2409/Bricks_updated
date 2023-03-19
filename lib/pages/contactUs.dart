@@ -1,6 +1,7 @@
 import 'package:brick/pages/menuPage.dart';
 import 'package:brick/pages/settingsPage.dart';
 import 'package:brick/widgets/customText.dart';
+import 'package:brick/widgets/upper_header.dart';
 import 'package:flutter/material.dart';
 
 class ContactUs extends StatefulWidget {
@@ -22,36 +23,7 @@ class _ContactUsState extends State<ContactUs> {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: EdgeInsets.only(
-                        top: he * 0.03,
-                      ),
-                      child: Row(
-                        children: [
-                          GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const menuPage(),
-                                  ),
-                                );
-                              },
-                              child: const Icon(
-                                Icons.arrow_back_ios,
-                                color: Colors.black,
-                                size: 25,
-                              )),
-                          SizedBox(
-                            width: he * 0.01,
-                          ),
-                          customText("Contact Us", 28),
-                          Expanded(child: Container()),
-                          const Icon(Icons.forward_to_inbox,
-                              size: 28, color: Colors.black),
-                        ],
-                      ),
-                    ),
+                   upperHearder("Contacts", context, true),
                     
                     SingleChildScrollView(
                       child: Container(
